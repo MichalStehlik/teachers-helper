@@ -1,6 +1,6 @@
 import React from 'react';
 import {createBrowserHistory} from "history";
-import {Switch, Route, BrowserRouter as Router} from "react-router-dom";
+import {Switch, Route, BrowserRouter} from "react-router-dom";
 import {AppProvider} from "./providers/ApplicationProvider";
 import { Container } from 'reactstrap';
 import './App.css';
@@ -19,7 +19,7 @@ const history = createBrowserHistory({ basename: "/helper/"});
 function App() {
   return (
     <AppProvider>  
-      <Router history={history}>
+      <BrowserRouter history={history} basename="/helper">
         <Navigation />
         <Container className="main-content">
           <Switch>
@@ -32,7 +32,7 @@ function App() {
             <Route component={NotFound} />
           </Switch>
         </Container>
-      </Router>
+      </BrowserRouter>
     </AppProvider>
   );
 }
